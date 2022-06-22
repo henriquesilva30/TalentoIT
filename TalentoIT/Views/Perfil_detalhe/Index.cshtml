@@ -1,0 +1,59 @@
+@model IEnumerable<TalentoIT.Entities.perfil_detalhe>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.titulo_exp)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.nome_empresa)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ano_inico)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ano_fim)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.id_perfil_talentoNavigation)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.titulo_exp)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.nome_empresa)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ano_inico)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ano_fim)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.id_perfil_talentoNavigation.email)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.id_perfil_detalhe">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.id_perfil_detalhe">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.id_perfil_detalhe">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

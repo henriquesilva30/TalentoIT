@@ -1,0 +1,41 @@
+@model IEnumerable<TalentoIT.Entities.talento_skill>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.id_perfil_talentoNavigation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.id_skillNavigation)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.id_perfil_talentoNavigation.email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.id_skillNavigation.area)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.id_talento_skill">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.id_talento_skill">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.id_talento_skill">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

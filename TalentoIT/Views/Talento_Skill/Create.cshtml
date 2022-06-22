@@ -1,0 +1,33 @@
+@model TalentoIT.Entities.talento_skill
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>talento_skill</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="id_skill" class="control-label"></label>
+                <select asp-for="id_skill" class ="form-control" asp-items="ViewBag.id_skill"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="id_perfil_talento" class="control-label"></label>
+                <select asp-for="id_perfil_talento" class ="form-control" asp-items="ViewBag.id_perfil_talento"></select>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+

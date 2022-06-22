@@ -1,0 +1,65 @@
+@model IEnumerable<TalentoIT.Entities.user>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.pass)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.nome_user)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.tipo_user)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.morada)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.nif)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.pass)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.nome_user)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.tipo_user)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.morada)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.nif)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.id_user">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.id_user">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.id_user">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

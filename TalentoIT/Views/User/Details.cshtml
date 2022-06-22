@@ -1,0 +1,54 @@
+@model TalentoIT.Entities.user
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>user</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.email)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.email)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.pass)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.pass)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.nome_user)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.nome_user)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.tipo_user)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.tipo_user)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.morada)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.morada)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.nif)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.nif)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.id_user">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>
