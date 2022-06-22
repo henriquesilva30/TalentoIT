@@ -1,0 +1,36 @@
+@model TalentoIT.Entities.user_skill
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>user_skill</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="id_user_skill" />
+            <div class="form-group">
+                <label asp-for="id_skill" class="control-label"></label>
+                <select asp-for="id_skill" class="form-control" asp-items="ViewBag.id_skill"></select>
+                <span asp-validation-for="id_skill" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="id_user" class="control-label"></label>
+                <select asp-for="id_user" class="form-control" asp-items="ViewBag.id_user"></select>
+                <span asp-validation-for="id_user" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
