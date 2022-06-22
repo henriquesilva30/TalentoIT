@@ -5,9 +5,11 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using TalentoIT.Context;
 
 namespace TalentoIT
 {
@@ -23,6 +25,18 @@ namespace TalentoIT
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+           #if DEBUG
+            services.AddControllersWithViews().AddRazorRuntimeCompilation();
+            #else
+            services.AddControllersWithViews();
+            #endif
+
+      services.AddDbContext<MyDbContext>(options =>
+      {
+          options.UseNpgsql("Host=localhost;port=49153;Database=postgres;Username=postgres;Password=postgrespw");
+                
+                
+      });
             services.AddControllersWithViews();
         }
 
