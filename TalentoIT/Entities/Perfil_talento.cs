@@ -1,5 +1,7 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+
 
 namespace TalentoIT.Entities
 {
@@ -8,8 +10,8 @@ namespace TalentoIT.Entities
     {
         public Perfil_talento()
         {
-            //Meals = new HashSet<Meal>();
-            
+          Detalhes = new HashSet<Perfil_detalhe>();
+          //Talentos = new HashSet<Perfil_talento>();
         }
 
         [Key] 
@@ -35,14 +37,20 @@ namespace TalentoIT.Entities
         [StringLength(100)]
         public string Flag { get; set; }
 
-        [Required]
-        public string UserId { get; set; }
-        [ForeignKey(nameof(UserId))] 
-        
+      //  [Required]
+      //  public string Perfil_detalheId { get; set; }
+      //  [ForeignKey(nameof(Perfil_detalheId))] 
+      
+        public int? UserId { get; set; }
+
+        [ForeignKey(nameof(UserId))]
         [InverseProperty("User")] 
         public virtual User User { get; set; }
+        
+        [InverseProperty(nameof(Perfil_detalhe.Perfil_talento))]
+        public virtual ICollection<Perfil_detalhe> Detalhes { get; set; }
 
-
+      
         //  [InverseProperty(nameof(Meal.User))] public virtual ICollection<Meal> Meals { get; set; }
     }
 }

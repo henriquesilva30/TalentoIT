@@ -13,11 +13,14 @@ namespace TalentoIT.Entities
         public User()
         {
             Talentos = new HashSet<Perfil_talento>();
+            Propostas = new HashSet<Proposta_user>();
+            User_skills = new HashSet<User_skill>();
             
         }
 
         [Key] 
-        [Column("id_user")] public int UserId { get; set; }
+        [Column("id_user")] 
+        public int UserId { get; set; }
 
         [Required]
         [Column("email")]
@@ -50,5 +53,11 @@ namespace TalentoIT.Entities
 
         [InverseProperty(nameof(Perfil_talento.User))]
         public virtual ICollection<Perfil_talento> Talentos { get; set; }
+        
+        [InverseProperty(nameof(Proposta_user.User))]
+        public virtual ICollection<Proposta_user> Propostas { get; set; } 
+        
+        [InverseProperty(nameof(User_skill.User))]
+        public virtual ICollection<User_skill> User_skills { get; set; }
     }
 }

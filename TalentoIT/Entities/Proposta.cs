@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace TalentoIT.Entities
@@ -8,12 +9,14 @@ namespace TalentoIT.Entities
     {
         public Proposta()
         {
-            //Meals = new HashSet<Meal>();
+            Propostas = new HashSet<Proposta_skill>();
+            PropostasUser = new HashSet<Proposta_user>();
+
             
         }
 
         [Key] 
-        [Column("id_proposta")] public int PropostaId { get; set; }
+        [Column("id_proposta")] public int UserID { get; set; }
 
         [Required]
         [Column("nome_proposta")]
@@ -39,6 +42,13 @@ namespace TalentoIT.Entities
         [Column("descricao")]
         [StringLength(100)]
         public string Descricao { get; set; }
+        
+        [InverseProperty(nameof(Proposta_skill.Proposta))]
+        public virtual ICollection<Proposta_skill> Propostas { get; set; }
+        
+           [InverseProperty(nameof(Proposta_user.Proposta))]
+        public virtual ICollection<Proposta_user> PropostasUser  { get; set; }
+       
 
         //  [InverseProperty(nameof(Meal.User))] public virtual ICollection<Meal> Meals { get; set; }
     }
