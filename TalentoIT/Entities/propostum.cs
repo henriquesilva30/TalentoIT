@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace TalentoIT.Entities
 {
+    [Table("proposta")]
     public partial class propostum
     {
         public propostum()

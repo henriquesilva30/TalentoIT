@@ -17,7 +17,6 @@ namespace TalentoIT.Context
             : base(options)
         {
         }
-
         public virtual DbSet<perfil_detalhe> perfil_detalhes { get; set; }
         public virtual DbSet<perfil_talento> perfil_talentos { get; set; }
         public virtual DbSet<proposta_skill> proposta_skills { get; set; }

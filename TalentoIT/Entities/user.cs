@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace TalentoIT.Entities
 {
+    [Table("users")]
     public partial class user
     {
         public user()
