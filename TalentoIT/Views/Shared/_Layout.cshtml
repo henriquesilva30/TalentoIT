@@ -19,11 +19,10 @@
             <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                 <ul class="navbar-nav flex-grow-1">
                     <li class="nav-item">
-                        <a class="nav-link text-dark" asp-area="" asp-controller="Auth" asp-action="Login">Login</a>
+                        <a class="nav-link text-dark" asp-area="" asp-controller="Auth" asp-action="Login">@(UserSession.Username ?? "Login")</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                    </li> 
+                    @if(UserSession.Username != null)
+                    {
                     <li class="nav-item">
                         <a class="nav-link text-dark" asp-area="" asp-controller="User" asp-action="Index">User</a>
                     </li> 
@@ -51,6 +50,10 @@
                     <li class="nav-item">
                         <a class="nav-link text-dark" asp-area="" asp-controller="User_skill" asp-action="Index">User Skill</a>
                     </li>
+                    }
+                      <li class="nav-item">
+                                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                                        </li> 
                 </ul>
             </div>
         </div>

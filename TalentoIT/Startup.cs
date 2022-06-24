@@ -25,19 +25,21 @@ namespace TalentoIT
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-           #if DEBUG
+            #if DEBUG
             services.AddControllersWithViews().AddRazorRuntimeCompilation();
             #else
             services.AddControllersWithViews();
             #endif
 
-      services.AddDbContext<MyDbContext>(options =>
-      {
-          options.UseNpgsql("Host=localhost;port=49153;Database=postgres;Username=postgres;Password=postgrespw");
-                
-                
-      });
-            services.AddControllersWithViews();
+            services.AddHttpContextAccessor();  
+            services.AddDistributedMemoryCache();
+            services.AddSession(options => {
+                options.IdleTimeout = TimeSpan.FromMinutes(60);
+            });    
+
+            // Add framework services. 
+      services.AddMvc();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -60,6 +62,9 @@ namespace TalentoIT
             app.UseRouting();
 
             app.UseAuthorization();
+            
+            app.UseSession();
+
 
             app.UseEndpoints(endpoints =>
             {

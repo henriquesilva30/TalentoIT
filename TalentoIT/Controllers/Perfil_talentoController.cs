@@ -14,9 +14,10 @@ namespace TalentoIT.Controllers
     {
         private readonly MyDbContext _context;
 
-        public Perfil_talentoController(MyDbContext context)
+        public Perfil_talentoController()
         {
-            _context = context;
+            _context = new MyDbContext() ;
+
         }
 
         // GET: Perfil_talento

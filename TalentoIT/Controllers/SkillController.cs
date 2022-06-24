@@ -14,14 +14,15 @@ namespace TalentoIT.Controllers
     {
         private readonly MyDbContext _context;
 
-        public SkillController(MyDbContext context)
+        public SkillController()
         {
-            _context = context;
+            _context = new MyDbContext();
         }
 
         // GET: Skill
         public async Task<IActionResult> Index()
         {
+
             return View(await _context.skills.ToListAsync());
         }
 

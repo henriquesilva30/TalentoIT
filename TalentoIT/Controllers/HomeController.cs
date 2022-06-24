@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
+using TalentoIT.Context;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using TalentoIT.Models;
@@ -12,10 +13,14 @@ namespace TalentoIT.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        private readonly MyDbContext _db;
+
 
         public HomeController(ILogger<HomeController> logger)
         {
             _logger = logger;
+            _db = new MyDbContext();
+
         }
 
         public IActionResult Index()

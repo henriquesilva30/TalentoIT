@@ -14,9 +14,9 @@ namespace TalentoIT.Controllers
     {
         private readonly MyDbContext _context;
 
-        public PropostaController(MyDbContext context)
+        public PropostaController()
         {
-            _context = context;
+            _context = new MyDbContext() ;
         }
 
         // GET: Proposta

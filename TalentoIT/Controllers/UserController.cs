@@ -13,14 +13,15 @@ namespace TalentoIT.Context
     {
         private readonly MyDbContext _context;
 
-        public UserController(MyDbContext context)
+        public UserController()
         {
-            _context = context;
+            _context = new MyDbContext() ;
         }
 
         // GET: User
         public async Task<IActionResult> Index()
         {
+            
             return View(await _context.users.ToListAsync());
         }
 
