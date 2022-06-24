@@ -4,6 +4,7 @@
                        pass varchar(100) not null,
                        nome_user varchar(100),
                        tipo_user VARCHAR(100) not null,
+                       media_horas FLOAT,
                        morada VARCHAR(100),
                        nif VARCHAR(100)
 );
@@ -84,7 +85,7 @@ create table perfil_detalhe (
 alter table talento_skill owner to postgres;
 
 INSERT INTO users (email, pass, nome_user, tipo_user, morada, nif)
-VALUES ('email','pass','nome','tipo','morada','nif')
+VALUES ('email','pass','nome','tipo','morada','nif');
 
 
 

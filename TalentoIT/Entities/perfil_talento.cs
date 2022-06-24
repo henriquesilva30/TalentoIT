@@ -30,6 +30,9 @@ namespace TalentoIT.Entities
         public string email { get; set; }
         [Required]
         [StringLength(100)]
+        public string pais { get; set; }
+        [Required]
+        [StringLength(100)]
         public string flag { get; set; }
         public int? id_user { get; set; }
 

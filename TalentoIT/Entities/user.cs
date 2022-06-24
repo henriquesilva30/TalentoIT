@@ -34,6 +34,7 @@ namespace TalentoIT.Entities
         public string morada { get; set; }
         [StringLength(100)]
         public string nif { get; set; }
+        public string media_horas { get; set; }
 
         [InverseProperty(nameof(perfil_talento.id_userNavigation))]
         public virtual ICollection<perfil_talento> perfil_talentos { get; set; }

@@ -4,7 +4,9 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
+using TalentoIT.Context;
 using TalentoIT.Models;
 
 namespace TalentoIT.Controllers
@@ -12,11 +14,19 @@ namespace TalentoIT.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        private readonly MyDbContext _context;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> logger, MyDbContext context)
         {
             _logger = logger;
+            _context = context;
         }
+        
+        /*// GET: Proposta
+        async Task<IActionResult> proposta.Index()
+        {
+            return View(await _context.proposta.ToListAsync());
+        }*/
 
         public IActionResult Index()
         {
@@ -33,5 +43,6 @@ namespace TalentoIT.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
+        
     }
 }

@@ -53,7 +53,7 @@ namespace TalentoIT.Context
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("id_user,email,pass,nome_user,tipo_user,morada,nif")] user user)
+        public async Task<IActionResult> Create([Bind("id_user,email,pass,nome_user,tipo_user,morada,nif,media_horas")] user user)
         {
             if (ModelState.IsValid)
             {
@@ -64,7 +64,7 @@ namespace TalentoIT.Context
             return View(user);
         }
 
-        // GET: User/Edit/5
+       // GET: User/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -85,7 +85,7 @@ namespace TalentoIT.Context
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("id_user,email,pass,nome_user,tipo_user,morada,nif")] user user)
+        public async Task<IActionResult> Edit(int id, [Bind("id_user,email,pass,nome_user,tipo_user,morada,nif,media_horas")] user user)
         {
             if (id != user.id_user)
             {

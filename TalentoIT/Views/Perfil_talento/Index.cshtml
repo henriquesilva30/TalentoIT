@@ -15,11 +15,14 @@
             <th>
                 @Html.DisplayNameFor(model => model.nome_talento)
             </th>
-            <th>
-                @Html.DisplayNameFor(model => model.preco_hora)
-            </th>
+            <td>
+                @Html.DisplayNameFor(model => model.pais)
+            </td>
             <th>
                 @Html.DisplayNameFor(model => model.email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.preco_hora)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.flag)
@@ -37,10 +40,13 @@
                 @Html.DisplayFor(modelItem => item.nome_talento)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.preco_hora)
+                @Html.DisplayFor(modelItem => item.pais)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.preco_hora)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.flag)

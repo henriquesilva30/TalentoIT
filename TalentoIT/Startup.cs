@@ -33,7 +33,7 @@ namespace TalentoIT
 
       services.AddDbContext<MyDbContext>(options =>
       {
-          options.UseNpgsql("Host=localhost;port=49153;Database=postgres;Username=postgres;Password=postgrespw");
+          options.UseNpgsql("Host=localhost;port=5432;Database=postgres;Username=postgres;Password=postgrespw");
                 
                 
       });
