@@ -4,6 +4,8 @@ using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authorization;
 using TalentoIT.Context;
 using TalentoIT.Models;
 using Microsoft.AspNetCore.Http;
@@ -47,6 +49,16 @@ namespace TalentoIT.Controllers
             
             return View(login);
         }
+        
+        
+        [Authorize]
+        public async Task<IActionResult> Logout()
+        {
+            await HttpContext.SignOutAsync();
+            //HttpContext.Session.Remove("IdUser");
+            return Redirect("/");
+        } 
+        
         
         static string ComputeSha256Hash(string rawData)  
         {  

@@ -1,4 +1,6 @@
-﻿<!DOCTYPE html>
+﻿@using Microsoft.AspNetCore.Http
+@using Microsoft.AspNetCore.Mvc.TagHelpers
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8"/>
@@ -18,14 +20,15 @@
             </button>
             <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                 <ul class="navbar-nav flex-grow-1">
-                    <li class="nav-item">
-                        <a class="nav-link text-dark" asp-area="" asp-controller="Auth" asp-action="Login">@(UserSession.Username ?? "Login")</a>
-                    </li>
+                
                     @if(UserSession.Username != null)
                     {
                     <li class="nav-item">
-                        <a class="nav-link text-dark" asp-area="" asp-controller="User" asp-action="Index">User</a>
-                    </li> 
+                        <a class="nav-link text-dark" asp-area="" asp-controller="User" asp-action="Index">@Context.Session.GetString("nome_user")</a>
+                    </li>  
+                        <li class="nav-item">
+                        <a class="nav-link text-dark" asp-area="" asp-controller="Auth" asp-action="Logout">Logout</a>
+                    </li>
                     <li class="nav-item">
                         <a class="nav-link text-dark" asp-area="" asp-controller="Skill" asp-action="Index">Skill</a>
                     </li> 
@@ -51,9 +54,15 @@
                         <a class="nav-link text-dark" asp-area="" asp-controller="User_skill" asp-action="Index">User Skill</a>
                     </li>
                     }
+                    else
+                    {
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Auth" asp-action="Login">Login</a>
+                        </li>
+                    }
                       <li class="nav-item">
-                                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                                        </li> 
+                          <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                          </li> 
                 </ul>
             </div>
         </div>
