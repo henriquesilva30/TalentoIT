@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -23,7 +24,13 @@ namespace TalentoIT.Controllers
         public async Task<IActionResult> Index()
         {
             var myDbContext = _context.perfil_talentos.Include(p => p.id_userNavigation);
-            return View(await myDbContext.ToListAsync());
+            var myDbContext2 = _context.perfil_detalhes.Include(p => p.id_perfil_talentoNavigation);
+            var task1 = await myDbContext.ToListAsync();
+            var task2 = await myDbContext2.ToListAsync();
+            
+            var perfil = (task1);
+
+            return View(perfil);
         }
 
         // GET: Perfil_talento/Details/5
@@ -57,7 +64,7 @@ namespace TalentoIT.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("id_perfil_talento,nome_talento,preco_hora,email,flag,id_user")] perfil_talento perfil_talento)
+        public async Task<IActionResult> Create([Bind("id_perfil_talento,nome_talento,preco_hora,email,pais,flag,id_user")] perfil_talento perfil_talento)
         {
             if (ModelState.IsValid)
             {
@@ -91,7 +98,7 @@ namespace TalentoIT.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("id_perfil_talento,nome_talento,preco_hora,email,flag,id_user")] perfil_talento perfil_talento)
+        public async Task<IActionResult> Edit(int id, [Bind("id_perfil_talento,nome_talento,preco_hora,email,pais,flag,id_user")] perfil_talento perfil_talento)
         {
             if (id != perfil_talento.id_perfil_talento)
             {

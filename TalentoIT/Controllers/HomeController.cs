@@ -21,16 +21,12 @@ namespace TalentoIT.Controllers
             _logger = logger;
             _context = context;
         }
-        
-        /*// GET: Proposta
-        async Task<IActionResult> proposta.Index()
-        {
-            return View(await _context.proposta.ToListAsync());
-        }*/
 
-        public IActionResult Index()
+        async public Task<ViewResult> Index()
         {
-            return View();
+            var proposta = await _context.proposta.ToListAsync();
+            
+            return View(proposta);
         }
 
         public IActionResult Privacy()

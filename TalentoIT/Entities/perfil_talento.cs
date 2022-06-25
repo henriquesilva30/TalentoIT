@@ -36,6 +36,7 @@ namespace TalentoIT.Entities
         public string flag { get; set; }
         public int? id_user { get; set; }
 
+
         [ForeignKey(nameof(id_user))]
         [InverseProperty(nameof(user.perfil_talentos))]
         public virtual user id_userNavigation { get; set; }

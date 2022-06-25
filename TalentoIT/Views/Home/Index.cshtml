@@ -4,16 +4,50 @@
     ViewData["Title"] = "Home Page";
 }
 
-<h1>Index</h1>
-<!--
+<h1>Home Page</h1>
+<br/>
+<h2>Propostas De Trabalho</h2>
+<br/>
+<br/>
 <table class="table">
     <thead>
     <tr>
-        
+        <th>
+            Título
+        </th>
+        <th>
+            Tipo Talento
+        </th>
+        <th>
+            Anos Experiência
+        </th>
+        <th>
+            Número de Horas
+        </th>
+        <th>
+            Descrição
+        </th>
     </tr>
     </thead>
     <tbody>
-    
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.nome_proposta)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.tipo_talento)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.expr_minima)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.total_horas)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.descricao)
+            </td>
+        </tr>
+    }
     </tbody>
 </table>
--->
