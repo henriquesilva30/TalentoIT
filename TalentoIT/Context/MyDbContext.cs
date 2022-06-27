@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
 using TalentoIT.Entities;
@@ -154,5 +154,7 @@ namespace TalentoIT.Context
         }
 
         partial void OnModelCreatingPartial(ModelBuilder modelBuilder);
+
+        public DbSet<TalentoIT.Entities.clientes> clientes { get; set; }
     }
 }

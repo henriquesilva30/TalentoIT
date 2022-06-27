@@ -18,6 +18,11 @@ namespace TalentoIT.Controllers
         {
             _context = context;
         }
+        
+        public IActionResult ErroDelete()
+        {
+            return View();
+        }
 
         // GET: Perfil_detalhe
         public async Task<IActionResult> Index()
@@ -59,14 +64,24 @@ namespace TalentoIT.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("id_perfil_detalhe,titulo_exp,nome_empresa,ano_inico,ano_fim,id_perfil_talento")] perfil_detalhe perfil_detalhe)
         {
-            if (ModelState.IsValid)
+            try
             {
-                _context.Add(perfil_detalhe);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+
+                if (ModelState.IsValid)
+                {
+                    _context.Add(perfil_detalhe);
+                    await _context.SaveChangesAsync();
+                    return RedirectToAction(nameof(Index));
+                }
+                ViewData["id_perfil_talento"] = new SelectList(_context.perfil_talentos, "id_perfil_talento", "email", perfil_detalhe.id_perfil_talento);
+                return View(perfil_detalhe);
+                
             }
-            ViewData["id_perfil_talento"] = new SelectList(_context.perfil_talentos, "id_perfil_talento", "email", perfil_detalhe.id_perfil_talento);
-            return View(perfil_detalhe);
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                return RedirectToAction(nameof(ErroDelete));
+            }
         }
 
         // GET: Perfil_detalhe/Edit/5

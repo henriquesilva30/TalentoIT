@@ -5,10 +5,8 @@
 }
 
 <h1>Meus Talentos</h1>
+<br>
 
-<p>
-    <a asp-action="Create">Criar Novo Perfil</a>
-</p>
 <table class="table">
     <thead>
     <tr>
@@ -34,32 +32,96 @@
     </tr>
     </thead>
     <tbody>
-    @foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.nome_talento)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.pais)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.email)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.preco_hora)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.flag)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.id_userNavigation.email)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.id_perfil_talento">Editar</a> |
-                <a asp-action="Details" asp-route-id="@item.id_perfil_talento">Detalhes</a> |
-                <a asp-action="Delete" asp-route-id="@item.id_perfil_talento">Apagar</a>
-            </td>
-        </tr>
+    @foreach (var item in Model)
+    {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.nome_talento)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.pais)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.email)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.preco_hora)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.flag)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.id_userNavigation.email)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.id_perfil_talento">Editar</a> |
+                    <a asp-action="Details" asp-route-id="@item.id_perfil_talento">Detalhes</a> |
+                    <a asp-action="Delete" asp-route-id="@item.id_perfil_talento">Apagar</a>
+                </td>
+            </tr>
+    }
+    </tbody>
+</table>
+<br>
+<br>
+<br>
+
+<p>
+    Criar Novo(a):
+</p>
+<br>
+<input type="button" class="btn btn-primary" value="Perfil Talento" onclick="location.href='@Url.Action("Create", "Perfil_talento")'" />
+<input type="button" class="btn btn-primary" value="Skills Talento" onclick="location.href='@Url.Action("Index", "Talento_Skill")'" />
+<input type="button" class="btn btn-primary" value="Detalhe Laboral" onclick="location.href='@Url.Action("Index", "Perfil_detalhe")'" />
+<br>
+<br>
+<br>
+
+<h1>Talentos Da Comunidade</h1>
+
+<table class="table">
+    <thead>
+    <tr>
+        <th>
+            Título
+        </th>
+        <th>
+            País
+        </th>
+        <th>
+            Email
+        </th>
+        <th>
+            Preço/Hora
+        </th>
+        <th>
+            Utilizador
+        </th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var item in Model)
+    {
+        if(item.flag=="ativo"){
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.nome_talento)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.pais)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.email)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.preco_hora)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.id_userNavigation.email)
+                </td>
+            </tr>
+        }
     }
     </tbody>
 </table>

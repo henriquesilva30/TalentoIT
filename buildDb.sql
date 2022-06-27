@@ -11,6 +11,15 @@
 
 alter table users owner to postgres;
 
+create table clientes (
+                       "id_cliente" serial constraint id_cliente primary key,
+                       nome varchar(100) not null,
+                       nif varchar(100) not null,
+                       email varchar(100) not null
+);
+
+alter table clientes owner to postgres;
+
 create table skills (
                         "id_skill" serial constraint id_skill primary key,
                         nome_skill varchar(100) not null,
@@ -25,7 +34,8 @@ create table proposta (
                           tipo_talento varchar(100) not null,
                           expr_minima varchar(100) not null,
                           total_horas varchar(100) not null,
-                          descricao varchar(100) not null
+                          descricao varchar(100) not null,
+                          "id_user" integer constraint id_user_fk references users on delete cascade
 );
 
 alter table proposta owner to postgres;
@@ -35,8 +45,7 @@ create table perfil_talento (
                                 nome_talento varchar(100) not null,
                                 preco_hora varchar(100) not null,
                                 email varchar(100) not null,
-                                flag varchar(100) not null,
-                                "id_user" integer constraint id_user_fk references users on delete cascade
+                                flag varchar(100) not null
 );
 
 alter table perfil_talento owner to postgres;

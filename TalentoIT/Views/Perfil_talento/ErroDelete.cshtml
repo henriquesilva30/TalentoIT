@@ -1,0 +1,13 @@
+@model TalentoIT.Entities.skill
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h1 class="text-danger">ERRO ao apagar!</h1>
+<br/>
+<h3>Não foi possível apagar este perfil pois contem skills e experiências vinculadas ao mesmo, pelo que primeiro terão de ser eliminadas!</h3>
+<br/>
+<br/>
+    <a asp-action="Index">Voltar Atrás</a>
+

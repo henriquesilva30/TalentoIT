@@ -1,0 +1,47 @@
+@model IEnumerable<TalentoIT.Entities.clientes>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Clientes</h1>
+
+<p>
+    <a asp-action="Create">Criar Novo Cliente</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Nome
+            </th>
+            <th>
+                NIF
+            </th>
+            <th>
+                Email
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.nome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.nif)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.email)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.id_cliente">Editar</a> |
+                <a asp-action="Details" asp-route-id="@item.id_cliente">Detalhes</a> |
+                <a asp-action="Delete" asp-route-id="@item.id_cliente">Apagar</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

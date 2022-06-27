@@ -32,6 +32,11 @@ namespace TalentoIT.Controllers
 
             return View(perfil);
         }
+        
+        public IActionResult ErroDelete()
+        {
+            return View();
+        }
 
         // GET: Perfil_talento/Details/5
         public async Task<IActionResult> Details(int? id)
@@ -66,14 +71,24 @@ namespace TalentoIT.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("id_perfil_talento,nome_talento,preco_hora,email,pais,flag,id_user")] perfil_talento perfil_talento)
         {
-            if (ModelState.IsValid)
+            try
             {
-                _context.Add(perfil_talento);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+            
+                if (ModelState.IsValid)
+                {
+                    _context.Add(perfil_talento);
+                    await _context.SaveChangesAsync();
+                    return RedirectToAction(nameof(Index));
+                }
+                ViewData["id_user"] = new SelectList(_context.users, "id_user", "email", perfil_talento.id_user);
+                return View(perfil_talento);
+                
             }
-            ViewData["id_user"] = new SelectList(_context.users, "id_user", "email", perfil_talento.id_user);
-            return View(perfil_talento);
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                throw;
+            }
         }
 
         // GET: Perfil_talento/Edit/5
@@ -153,10 +168,17 @@ namespace TalentoIT.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
+            try{
             var perfil_talento = await _context.perfil_talentos.FindAsync(id);
             _context.perfil_talentos.Remove(perfil_talento);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                return RedirectToAction(nameof(ErroDelete));
+            }
         }
 
         private bool perfil_talentoExists(int id)

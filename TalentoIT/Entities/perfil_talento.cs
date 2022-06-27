@@ -19,21 +19,30 @@ namespace TalentoIT.Entities
 
         [Key]
         public int id_perfil_talento { get; set; }
-        [Required]
+        
+        [Required(ErrorMessage = "Campo obrigatorio;")]
         [StringLength(100)]
         public string nome_talento { get; set; }
-        [Required]
+        
+        [Required(ErrorMessage = "Campo obrigatorio;")]
+        [RegularExpression(@"\d{1,10}")]
         [StringLength(100)]
         public string preco_hora { get; set; }
-        [Required]
+        
+        [Required(ErrorMessage = "Campo obrigatorio no formato: exemplo@exemplo.ex;")]
+        [RegularExpression(@"[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?")]
         [StringLength(100)]
         public string email { get; set; }
+        
         [Required]
         [StringLength(100)]
         public string pais { get; set; }
-        [Required]
-        [StringLength(100)]
+        
+        [Required(ErrorMessage = "Campo obrigatorio no formato ativo ou inativo;")]
+        [RegularExpression(@"^ativo$|^inativo$")]
         public string flag { get; set; }
+        
+        [Required(ErrorMessage = "Campo obrigatório;")]
         public int? id_user { get; set; }
 
 

@@ -1,0 +1,36 @@
+@model TalentoIT.Entities.clientes
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Detalhes</h1>
+
+<div>
+    <h4>Cliente</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            Nome:
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.nome)
+        </dd>
+        <dt class = "col-sm-2">
+            Nif:
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.nif)
+        </dd>
+        <dt class = "col-sm-2">
+            Email:
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.email)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.id_cliente">Editar</a> |
+    <a asp-action="Index">Voltar Atrás</a>
+</div>

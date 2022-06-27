@@ -13,18 +13,20 @@ namespace TalentoIT.Entities
     {
         [Key]
         public int id_perfil_detalhe { get; set; }
-        [Required]
+        [Required(ErrorMessage = "Campo obrigatorio;")]
         [StringLength(100)]
         public string titulo_exp { get; set; }
-        [Required]
+        [Required(ErrorMessage = "Campo obrigatorio;")]
         [StringLength(100)]
         public string nome_empresa { get; set; }
-        [Required]
-        [StringLength(100)]
+        [Required(ErrorMessage = "Campo obrigatorio no formato XXXX -> números;")]
+        [RegularExpression(@"\d{4}$")]
+        [StringLength(4)]
         public string ano_inico { get; set; }
-        [Required]
-        [StringLength(100)]
+        
+        [StringLength(4)]
         public string ano_fim { get; set; }
+        
         public int? id_perfil_talento { get; set; }
 
         [ForeignKey(nameof(id_perfil_talento))]

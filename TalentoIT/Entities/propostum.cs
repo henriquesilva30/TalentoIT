@@ -18,19 +18,24 @@ namespace TalentoIT.Entities
 
         [Key]
         public int id_proposta { get; set; }
-        [Required]
+        [Required(ErrorMessage = "Campo obrigatório;")]
         [StringLength(100)]
         public string nome_proposta { get; set; }
-        [Required]
+        
+        [Required(ErrorMessage = "Campo obrigatório;")]
         [StringLength(100)]
         public string tipo_talento { get; set; }
-        [Required]
+        
+        [RegularExpression(@"\d{0,4}$", ErrorMessage = ("A experiência é quantificada em anos;"))]
+        [Required(ErrorMessage = ("Campo obrigatório;"))]
         [StringLength(100)]
         public string expr_minima { get; set; }
-        [Required]
-        [StringLength(100)]
+        [RegularExpression(@"\d{0,4}$", ErrorMessage = ("O total de horas tem de ser um numero inteiro;"))]
+        [Required(ErrorMessage = ("Campo obrigatório;"))]
+        [StringLength(4)]
         public string total_horas { get; set; }
-        [Required]
+        
+        [Required(ErrorMessage = "Campo obrigatório;")]
         [StringLength(100)]
         public string descricao { get; set; }
 

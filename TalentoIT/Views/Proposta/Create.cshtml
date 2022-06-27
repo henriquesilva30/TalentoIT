@@ -4,36 +4,36 @@
     ViewData["Title"] = "Create";
 }
 
-<h1>Create</h1>
+<h1>Criar</h1>
 
-<h4>propostum</h4>
+<h4>Proposta</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="nome_proposta" class="control-label"></label>
+                <label asp-for="nome_proposta" class="control-label">Nome:</label>
                 <input asp-for="nome_proposta" class="form-control" />
                 <span asp-validation-for="nome_proposta" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="tipo_talento" class="control-label"></label>
+                <label asp-for="tipo_talento" class="control-label">Categoria:</label>
                 <input asp-for="tipo_talento" class="form-control" />
                 <span asp-validation-for="tipo_talento" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="expr_minima" class="control-label"></label>
+                <label asp-for="expr_minima" class="control-label">Experiência Minima:</label>
                 <input asp-for="expr_minima" class="form-control" />
                 <span asp-validation-for="expr_minima" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="total_horas" class="control-label"></label>
+                <label asp-for="total_horas" class="control-label">Total Horas Laborais:</label>
                 <input asp-for="total_horas" class="form-control" />
                 <span asp-validation-for="total_horas" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="descricao" class="control-label"></label>
+                <label asp-for="descricao" class="control-label">Descrição:</label>
                 <input asp-for="descricao" class="form-control" />
                 <span asp-validation-for="descricao" class="text-danger"></span>
             </div>
@@ -45,6 +45,6 @@
 </div>
 
 <div>
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Index">Voltar Atrás</a>
 </div>
 

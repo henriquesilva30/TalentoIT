@@ -4,46 +4,46 @@
     ViewData["Title"] = "Create";
 }
 
-<h1>Create</h1>
+<h1>Criar</h1>
 
-<h4>perfil_detalhe</h4>
+<h4>Experiência Laboral</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="titulo_exp" class="control-label"></label>
+                <label asp-for="titulo_exp" class="control-label">Titulo:</label>
                 <input asp-for="titulo_exp" class="form-control" />
                 <span asp-validation-for="titulo_exp" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="nome_empresa" class="control-label"></label>
+                <label asp-for="nome_empresa" class="control-label">Empresa:</label>
                 <input asp-for="nome_empresa" class="form-control" />
                 <span asp-validation-for="nome_empresa" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="ano_inico" class="control-label"></label>
+                <label asp-for="ano_inico" class="control-label">Ano Inicio</label>
                 <input asp-for="ano_inico" class="form-control" />
                 <span asp-validation-for="ano_inico" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="ano_fim" class="control-label"></label>
+                <label asp-for="ano_fim" class="control-label">Ano Fim</label>
                 <input asp-for="ano_fim" class="form-control" />
                 <span asp-validation-for="ano_fim" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="id_perfil_talento" class="control-label"></label>
+                <label asp-for="id_perfil_talento" class="control-label">Perfil Talento</label>
                 <select asp-for="id_perfil_talento" class ="form-control" asp-items="ViewBag.id_perfil_talento"></select>
             </div>
             <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+                <input type="submit" value="Criar" class="btn btn-primary" />
             </div>
         </form>
     </div>
 </div>
 
 <div>
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Index">Voltar Atrás</a>
 </div>
 

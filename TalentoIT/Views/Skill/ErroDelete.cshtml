@@ -1,0 +1,13 @@
+@model TalentoIT.Entities.skill
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h1 class="text-danger">ERRO ao apagar!</h1>
+<br/>
+<h3>Não foi possível apagar essa skill pois encontra-se vinculada a outros utilizadores!</h3>
+<br/>
+<br/>
+    <a asp-action="Index">Voltar Atrás</a>
+

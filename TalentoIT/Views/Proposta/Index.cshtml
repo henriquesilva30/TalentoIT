@@ -4,34 +4,32 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
+<h1>Propostas de Trabalho</h1>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
+
 <table class="table">
     <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.nome_proposta)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.tipo_talento)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.expr_minima)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.total_horas)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.descricao)
-            </th>
-            <th></th>
-        </tr>
+    <tr>
+        <th>
+            Nome
+        </th>
+        <th>
+            Categoria
+        </th>
+        <th>
+            Experiência Minima
+        </th>
+        <th>
+            Total Horas Laborais
+        </th>
+        <th>
+            Descrição
+        </th>
+        <th></th>
+    </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
+    @foreach (var item in Model) {
         <tr>
             <td>
                 @Html.DisplayFor(modelItem => item.nome_proposta)
@@ -49,11 +47,22 @@
                 @Html.DisplayFor(modelItem => item.descricao)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.id_proposta">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.id_proposta">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.id_proposta">Delete</a>
+                <a asp-action="Edit" asp-route-id="@item.id_proposta">Editar</a> |
+                <a asp-action="Details" asp-route-id="@item.id_proposta">Detalhes</a> |
+                <a asp-action="Delete" asp-route-id="@item.id_proposta">Apagar</a>
             </td>
         </tr>
-}
+    }
     </tbody>
 </table>
+
+<br>
+<br>
+<br>
+
+<p>
+    Criar Novo(a):
+</p>
+<br>
+<input type="button" class="btn btn-primary" value="Proposta" onclick="location.href='@Url.Action("Create", "Proposta")'" />
+<input type="button" class="btn btn-primary" value="Skills Proposta" onclick="location.href='@Url.Action("Index", "Proposta_skill")'" />

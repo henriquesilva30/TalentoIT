@@ -994,3 +994,12 @@ C:\Users\simao\Documents\ESTG\ESII\Projeto\TalentoIT\TalentoIT\obj\Debug\net5.0\
 C:\Users\simao\Documents\ESTG\ESII\Projeto\TalentoIT\TalentoIT\obj\Debug\net5.0\ref\TalentoIT.dll
 C:\Users\simao\Documents\ESTG\ESII\Projeto\TalentoIT\TalentoIT\bin\Debug\net5.0\ref\TalentoIT.dll
 C:\Users\simao\Documents\ESTG\ESII\Projeto\TalentoIT\TalentoIT\obj\Debug\net5.0\staticwebassets\TalentoIT.StaticWebAssets.xml
+C:\Users\simao\Documents\ESTG\ESII\Projeto\TalentoIT\TalentoIT\obj\Debug\net5.0\Razor\Views\Skill\ErroDelete.cshtml.g.cs
+C:\Users\simao\Documents\ESTG\ESII\Projeto\TalentoIT\TalentoIT\obj\Debug\net5.0\Razor\Views\Perfil_talento\ErroDelete.cshtml.g.cs
+C:\Users\simao\Documents\ESTG\ESII\Projeto\TalentoIT\TalentoIT\obj\Debug\net5.0\Razor\Views\Perfil_detalhe\ErroDelete.cshtml.g.cs
+C:\Users\simao\Documents\ESTG\ESII\Projeto\TalentoIT\TalentoIT\obj\Debug\net5.0\Razor\Views\Clientes\Create.cshtml.g.cs
+C:\Users\simao\Documents\ESTG\ESII\Projeto\TalentoIT\TalentoIT\obj\Debug\net5.0\Razor\Views\Clientes\Delete.cshtml.g.cs
+C:\Users\simao\Documents\ESTG\ESII\Projeto\TalentoIT\TalentoIT\obj\Debug\net5.0\Razor\Views\Clientes\Details.cshtml.g.cs
+C:\Users\simao\Documents\ESTG\ESII\Projeto\TalentoIT\TalentoIT\obj\Debug\net5.0\Razor\Views\Clientes\Edit.cshtml.g.cs
+C:\Users\simao\Documents\ESTG\ESII\Projeto\TalentoIT\TalentoIT\obj\Debug\net5.0\Razor\Views\Clientes\Index.cshtml.g.cs
+C:\Users\simao\Documents\ESTG\ESII\Projeto\TalentoIT\TalentoIT\obj\Debug\net5.0\Razor\Views\Auth\Login.cshtml.g.cs

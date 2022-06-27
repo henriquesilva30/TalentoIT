@@ -4,34 +4,35 @@
     ViewData["Title"] = "Perfil Detalhe";
 }
 
-<h1>Index</h1>
+<h1>Experiência Laboral</h1>
 
 <p>
-    <a asp-action="Create">Create New</a>
+    <a asp-action="Create">Vincular Experiência Laboral</a>
 </p>
 <table class="table">
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.titulo_exp)
+                Titulo
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.nome_empresa)
+                Empresa
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.ano_inico)
+                Ano Inicio
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.ano_fim)
+                Ano Fim
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.id_perfil_talentoNavigation)
+                Perfil Talento
             </th>
             <th></th>
         </tr>
     </thead>
     <tbody>
 @foreach (var item in Model) {
+    if(item.ano_fim != null){
         <tr>
             <td>
                 @Html.DisplayFor(modelItem => item.titulo_exp)
@@ -46,14 +47,39 @@
                 @Html.DisplayFor(modelItem => item.ano_fim)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.id_perfil_talentoNavigation.email)
+                @Html.DisplayFor(modelItem => item.id_perfil_talentoNavigation.nome_talento)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.id_perfil_detalhe">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.id_perfil_detalhe">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.id_perfil_detalhe">Delete</a>
+                <a asp-action="Edit" asp-route-id="@item.id_perfil_detalhe">Editar</a> |
+                <a asp-action="Details" asp-route-id="@item.id_perfil_detalhe">Detalhes</a> |
+                <a asp-action="Delete" asp-route-id="@item.id_perfil_detalhe">Apagar</a>
             </td>
         </tr>
+    }else
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.titulo_exp)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.nome_empresa)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ano_inico)
+            </td>
+            <td>
+                Ainda empregado
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.id_perfil_talentoNavigation.nome_talento)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.id_perfil_detalhe">Editar</a> |
+                <a asp-action="Details" asp-route-id="@item.id_perfil_detalhe">Detalhes</a> |
+                <a asp-action="Delete" asp-route-id="@item.id_perfil_detalhe">Apagar</a>
+            </td>
+        </tr> 
+    }
 }
     </tbody>
 </table>

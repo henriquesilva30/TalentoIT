@@ -2,9 +2,11 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Options;
 using TalentoIT.Context;
 using TalentoIT.Entities;
 
@@ -17,6 +19,11 @@ namespace TalentoIT.Controllers
         public SkillController(MyDbContext context)
         {
             _context = context;
+        }
+        
+        public IActionResult ErroDelete()
+        {
+            return View();
         }
 
         // GET: Skill
@@ -139,10 +146,18 @@ namespace TalentoIT.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var skill = await _context.skills.FindAsync(id);
-            _context.skills.Remove(skill);
-            await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
+            try
+            {
+                var skill = await _context.skills.FindAsync(id);
+                _context.skills.Remove(skill);
+                await _context.SaveChangesAsync();
+                return RedirectToAction(nameof(Index));
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                return RedirectToAction(nameof(ErroDelete));
+            }
         }
 
         private bool skillExists(int id)

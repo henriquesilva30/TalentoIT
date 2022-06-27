@@ -22,6 +22,7 @@ namespace TalentoIT.Controllers
             _context = context;
         }
 
+
         async public Task<ViewResult> Index()
         {
             var proposta = await _context.proposta.ToListAsync();
